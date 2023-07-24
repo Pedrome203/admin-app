@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "admin-app-33af3": {
+      "hosting": {
+        "01-admin-app": [
+          "admin-app-33af3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "admin-app-33af3"
+  }
+}

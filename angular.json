@@ -99,6 +99,13 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "01-admin-app:build:production"
+          }
         }
       }
     }
