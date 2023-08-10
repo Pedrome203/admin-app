@@ -21,7 +21,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './app.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
+import { SortInputOutputPipe } from './pipes/sort-input-output.pipe';
+import { NgChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,12 +34,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    RegisterComponent
+    RegisterComponent,
+    SortInputOutputPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgChartsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

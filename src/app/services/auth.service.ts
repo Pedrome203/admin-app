@@ -6,6 +6,7 @@ import { Firestore, collection, doc, onSnapshot, setDoc } from '@angular/fire/fi
 import { AppState } from '../app.reducers';
 import { Store } from '@ngrx/store';
 import * as authActions from '../auth/auth.actions';
+import * as inputOutputActions from '../input-output/input-output.actions';
 
 
 @Injectable({
@@ -13,7 +14,10 @@ import * as authActions from '../auth/auth.actions';
 })
 export class AuthService {
   userUnsubscribe!: Unsubscribe;
-
+  private _user!: User | null
+  get user() {
+    return this._user
+  }
   constructor(public auth: Auth, private firestore: Firestore, private store: Store<AppState>) { }
 
   initAuthListener() {
@@ -29,6 +33,7 @@ export class AuthService {
             const data: any = docUser.data();
             console.log(data)
             const user = User.fromFirebase(data)
+            this._user = user
             this.store.dispatch(authActions.setUser({ user }));
           },
           (err => {
@@ -38,7 +43,9 @@ export class AuthService {
 
       } else {
         this.userUnsubscribe ? this.userUnsubscribe() : null;
+        this._user = null
         this.store.dispatch(authActions.unSetUser());
+        this.store.dispatch(inputOutputActions.unSetItems())
       }
 
     });
