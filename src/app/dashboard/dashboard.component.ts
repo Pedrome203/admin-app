@@ -18,8 +18,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private _inputOutputService: InputOutputService) { }
 
   ngOnDestroy(): void {
-    this.userSubs.unsubscribe()
-    this.inputOutputSubs.unsubscribe()
+    this.userSubs?.unsubscribe()
+    this.inputOutputSubs?.unsubscribe()
   }
 
   ngOnInit(): void {

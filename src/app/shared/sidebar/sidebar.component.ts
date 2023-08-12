@@ -27,6 +27,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
     })
   }
 
+  changeRoute(route: string) {
+    this._router.navigate([route]);
+
+  }
+
   logout() {
     Swal.fire({
       title: 'Espere...',

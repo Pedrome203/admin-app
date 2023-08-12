@@ -5,6 +5,7 @@ import { AppState } from 'src/app/app.reducers';
 import { InputOutput } from 'src/app/models/input-output.model';
 import { InputOutputService } from 'src/app/services/input-output.service';
 import Swal from 'sweetalert2';
+import { AppStateWithInputOutput } from '../input-output.reducer';
 
 @Component({
   selector: 'app-detail',
@@ -17,7 +18,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   inputsOutputs: InputOutput[] = []
   inputsOutputsSubs!: Subscription
 
-  constructor(private store: Store<AppState>, private _inputOutputService: InputOutputService) { }
+  constructor(private store: Store<AppStateWithInputOutput>, private _inputOutputService: InputOutputService) { }
   ngOnDestroy(): void {
     this.inputsOutputsSubs.unsubscribe()
   }

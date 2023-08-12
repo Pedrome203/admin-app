@@ -20,21 +20,21 @@
         </li>
 
         <li class="nav-item">
-            <a routerLink="/" class="nav-link">
+            <a (click)="changeRoute('/')" class="nav-link cursor">
                 <i class="menu-icon fa fa-tachometer-alt"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a routerLink="/input-output" class="nav-link">
+            <a (click)="changeRoute('/input-output')" class="nav-link cursor">
                 <i class="menu-icon fa fa-clipboard-list"></i>
                 <span class="menu-title">Ingresos y Egresos</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a routerLink="/detail" class="nav-link">
+            <a (click)="changeRoute('/detail')" class="nav-link cursor">
                 <i class="menu-icon fa fa-table"></i>
                 <span class="menu-title">Detalle</span>
             </a>

@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { ChartData, ChartEvent, ChartType } from 'chart.js';
 import { AppState } from 'src/app/app.reducers';
 import { InputOutput } from 'src/app/models/input-output.model';
+import { AppStateWithInputOutput } from '../input-output.reducer';
 
 @Component({
   selector: 'app-statistics',
@@ -28,7 +29,7 @@ export class StatisticsComponent implements OnInit {
   totalInputs: number = 0
   totalOutputs: number = 0
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppStateWithInputOutput>) { }
 
   ngOnInit(): void {
     this.store.select('inputOutput').subscribe(({ items }) => this.generateStatistics(items))

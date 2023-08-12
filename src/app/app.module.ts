@@ -3,45 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { InputOutputComponent } from './input-output/input-output.component';
-import { StatisticsComponent } from './input-output/statistics/statistics.component';
-import { DetailComponent } from './input-output/detail/detail.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './app.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { SortInputOutputPipe } from './pipes/sort-input-output.pipe';
-import { NgChartsModule } from 'ng2-charts';
+
+import { AuthModule } from './auth/auth.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent,
-    InputOutputComponent,
-    StatisticsComponent,
-    DetailComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
-    RegisterComponent,
-    SortInputOutputPipe
   ],
   imports: [
+    AuthModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    NgChartsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
